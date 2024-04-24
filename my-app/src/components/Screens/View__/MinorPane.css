@@ -1,0 +1,408 @@
+.minor-pane {
+    position: relative;
+    padding: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 20px; /* Increased font size */
+}
+
+.search-icon {
+    margin-left: -40px; /* Adjust icon position */
+    z-index: 1;
+}
+
+.burger-menu {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.menu-icon {
+    font-size: 24px;
+    color: #000;
+}
+
+.menu-options-container {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.menu-option-box {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.menu-option-box:last-child {
+    border-bottom: none;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-top:  20px;
+}
+
+.filter {
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.toggle-button {
+    margin-right: 5px;
+}
+
+.search-clear-buttons {
+    margin-top: 20px;
+}
+.search-button, .clear-button {
+    border: 1px solid #999;
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2); /* Add 3D effect */
+}
+
+.search-button:hover, .clear-button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Add 3D effect on hover */
+}
+
+.search-button:active, .clear-button:active {
+    box-shadow: none; /* Remove shadow on click */
+}
+
+.search-button:hover, .clear-button:hover {
+    cursor: pointer;
+}
+
+.search-button:hover, .clear-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.search-button:hover, .clear-button:hover {
+    cursor: pointer;
+}
+
+.search-button:hover::after, .clear-button:hover::after {
+    content: '\261e'; /* Hand icon */
+    margin-left: 5px;
+}
+.search-button,
+.clear-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.item-list {
+    margin-bottom: 20px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th, .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    background-color: #f2f2f2;
+}
+.table th, .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+.table tr:hover {
+    background-color: #2cdce2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.492); /* Adjust box-shadow on hover */
+}
+
+.table tr:hover .hover-icon {
+    color: red; /* Change color on hover */
+}
+.row-content {
+    padding: 8px;
+    border-radius: 100px; /* Apply border-radius to create curved edges */
+}
+.table tr {
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add box-shadow for 3D effect */
+    border-radius: 10px; 
+}
+.table-row {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add 3D effect */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease;
+    
+}
+
+.table-row:hover {
+    background-color: #f0f0f0; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.table-cell {
+    padding: 10px; /* Padding for cells */
+    border: 10px solid #2b1270; /* Border for cells */
+    border-radius: 5px; /* Rounded corners */
+    
+}
+
+.table-row:hover::after {
+    content: '\261e'; /* Hand icon */
+    margin-left: 5px;
+}
+
+.table-row:active {
+    box-shadow: none; /* Remove shadow on click */
+}
+
+.item-count-elapsed-time {
+    font-size: 18px;
+    margin-top: 10px;
+}
+.table-header {
+    background-color: #c5d9f1; /* Light blue */
+    color: #333; /* Text color */
+    font-weight: bold; /* Bold font for headers */
+    padding: 10px; /* Padding for headers */
+    text-align: left; /* Align text to left */
+    border: 1px solid #ccc; /* Border for headers */
+    border-radius: 5px; /* Rounded corners */
+}
+/* Item name input */
+.itemName-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 10px; /* Add margin top */
+  }
+  
+  .itemName-input::placeholder {
+    color: #6c757d;
+  }
+  
+  .itemName-input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+
+
+  /* Search input */
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.search-input::placeholder {
+    color: #6c757d;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Supplier name input */
+
+.additinal-info-supplier
+{
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 20px; /* Increased font size */
+}
+.additinal-info-item
+{
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 20px; /* Increased font size */
+}
+
+.supplier-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 10px; /* Add margin top */
+  }
+  
+  .supplier-input::placeholder {
+    color: #6c757d;
+  }
+  
+  .supplier-input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+
+  .supplier-button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.supplier-button:hover {
+    background-color: #0056b3;
+}
+.item-number-bar {
+    margin-top: 10px; /* Adjust the spacing as needed */
+}
+.supplier-bar {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: right; /* Center items horizontally */
+}
+
+.supplier-button {
+    margin: 0 30px; /* Adjust margin between buttons */
+}
+
+.Packaginging-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 10px; /* Add margin top */
+  }
+  
+  .Packaginging-input::placeholder {
+    color: #6c757d;
+  }
+  
+  .Packaginging-input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  .Edition {
+    width: 80px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 10px; /* Add margin top */
+  }
+  .aaNumber {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 10px; /* Add margin top */
+  }
+  .down-arrow {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.arrow-icon {
+    font-size: 16px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.visible {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Adjust as needed */
+}
+.item-count-elapsed-time {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+.elapsed-time {
+    /* Additional styles for the elapsed time */
+    font-size: 14px;
+    color: #555;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.item-count {
+    /* Additional styles for the item count */
+    font-size: 14px;
+    color: #555;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+

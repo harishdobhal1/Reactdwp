@@ -1,0 +1,54 @@
+/* ViewScreen.css */
+
+.view-screen {
+    display: flex;
+    height: 100%;
+    padding-top: 20px; /* Add space from the top */
+    overflow: hidden; /* Prevent scroll bars */
+}
+
+.pane-container {
+    border: 1px solid #ccc; /* Add border around the pane container */
+    border-radius: 5px;
+    margin-right: 10px; /* Add space between the two pane containers */
+    overflow: hidden; /* Prevent scroll bars */
+}
+
+.minor-pane-container {
+   
+    width: 400px; /* Adjust the width as needed */
+    flex: none;
+    border: 1px solid #ccc; /* Add border around the minor pane container */
+    border-radius: 5px;
+    overflow: hidden; /* Ensure content inside the minor pane does not overflow */
+}
+
+.minor-pane {
+    background-color: #f0f0f0;
+    overflow: hidden;
+    position: relative;
+}
+
+.minor-pane .resizable-pane {
+    max-width: 900px; /* Adjust the maximum width */
+    min-width: 200px; /* Adjust the minimum width */
+}
+.gap {
+    width: 20px; /* Adjust as needed */
+}
+
+.minor-pane .resizer {
+    background: #ccc;
+    cursor: col-resize;
+    height: 100%;
+    width: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.major-pane-container {
+    flex: 1;
+    overflow: hidden;
+    border-top:1px solid #ccc
+}

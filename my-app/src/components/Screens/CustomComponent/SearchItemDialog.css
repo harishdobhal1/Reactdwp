@@ -1,0 +1,9 @@
+/* CustomToggle.css */
+.CustomToggle .react-toggle-track {
+    background-color: red !important; /* Change the background color when toggle is off */
+  }
+  
+  .CustomToggle .react-toggle-track-check {
+    background-color: blue !important; /* Change the background color when toggle is on */
+  }
+  

@@ -1,0 +1,21 @@
+.resizable-pane {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 100px; /* Adjust as needed */
+}
+
+.resize-handle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    cursor: col-resize;
+    background-color: #ccc;
+}
+
+.resize-handle:hover {
+    background-color: #aaa;
+}

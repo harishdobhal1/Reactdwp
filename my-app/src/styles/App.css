@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Apply the Roboto font to the root element */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Fill the entire viewport height */
+}
+
+.view-screen {
+    display: flex;
+    flex: 1; /* Expand to fill available space */
+}
+
+.minor-pane-container,
+.major-pane-container {
+    width: 30%; /* Width for each pane */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    padding: 10px; /* Add padding for spacing */
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+
+.major-pane-container {
+    flex: 1; /* Use flex-grow to make the major pane container grow and cover the remaining space */
+    border-left: 1px solid #ccc; /* Add border between panes */
+}
+
+.box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px; /* Add spacing between boxes */
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between; /* Adjust alignment as needed */
+    align-items: center;
+    height: 50px;
+    background-color: #00547E; /* Set background color to blue */
+    border-radius: 10px;
+}
+.menu-end-items {
+  display: flex;
+  align-items: center;
+}
+.menu-items {
+    display: flex;
+}
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: red;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color:green; /* Change to desired color when toggle is checked */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px green; /* Change to desired color when toggle is focused */
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.menu-item {
+    position: relative;
+    color: #fff; /* Set text color to white */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Add padding to increase clickable area */
+    margin: 0 10px; /* Add margin for spacing between menu items */
+    padding-right: 10px;
+    
+}
+
+.menu-item span {
+    color: #fff; /* Set text color to white */
+}
+
+.menu-item-line {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+     /* Adjusted to cover the entire width */
+    height: 2px;
+    background-color: white; /* Initial color */
+    transition: background-color 0.3s ease; /* Transition color change */
+}
+
+.menu-item.selected .menu-item-line{
+    width: 100%;
+    background-color: blue; /* Selected color */
+}
+
+.notification-icon,
+.user-info {
+    position: relative;
+    padding-right: 20px;
+    
+}
+
+.notification-icon .fa-icon,
+.user-info .fa-icon {
+    color: #fff; /* Set icon color to white */
+    
+    
+
+}
+
+.user-info-dialog {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 220px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    
+}
+
+.user-info-dialog .header {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.user-info-dialog p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.user-info-dialog button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.user-info-dialog button:hover {
+    background-color: #0056b3;
+}

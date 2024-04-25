@@ -3,6 +3,8 @@ import MinorPane from './MinorPane';
 import MajorPane from './MajorPane';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faThumbtack } from '@fortawesome/free-solid-svg-icons';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 class ViewScreen extends Component {
     constructor(props) {
@@ -15,10 +17,12 @@ class ViewScreen extends Component {
             isMinorPanePinned: false,
             isMinorPaneHidden: false,
             isFloatingPanePinned: false,
-            isFloatingPaneHidden: true,
+            isFloatingPaneHidden: false,
+            isUserInfoOpen:false,
             minWidth: 300,
             maxWidth: 600,
-            isHoveringSide: false // Track if mouse is hovering over the side of minor-pane-container
+            isHoveringSide: false, // Track if mouse is hovering over the side of minor-pane-container
+            isHoveringFloatingPane: false//track the osue hovering for floating pane
         };
         
     }
@@ -71,8 +75,24 @@ class ViewScreen extends Component {
     }
 
     handleToggleFloatingPane = () => {
-        this.setState(prevState => ({ isFloatingPaneHidden: !prevState.isFloatingPaneHidden }));
+        const { isFloatingPaneOpen, isFloatingPaneHidden } = this.props;
+
+        // If the floating pane is open, close it and hide the pane
+        if (isFloatingPaneOpen) {
+            this.props.toggleFloatingPane(); // Toggle the floating pane state 
+            this.setState({ isFloatingPaneHidden: false }); // show  the floating pane
+        } else {
+            // If the floating pane is closed but hidden, open it and show the pane
+            if (isFloatingPaneHidden) {
+                this.setState({ isFloatingPaneOpen: false }); // Show the floating pane
+            }
+            // Toggle the floating pane state to open it
+            this.props.toggleFloatingPane();
+        }
     }
+
+
+   
 
     handleMouseEnterSide = () => {
         if (!this.state.isMinorPanePinned) {
@@ -97,11 +117,20 @@ class ViewScreen extends Component {
     }
 
     render() {
-        const { selectedItem, minorPaneWidth, isMinorPanePinned, isMinorPaneHidden, isFloatingPanePinned, isFloatingPaneHidden } = this.state;
+        const { selectedItem, minorPaneWidth, isMinorPanePinned, isMinorPaneHidden, isFloatingPanePinned, isFloatingPaneHidden,isHoveringFloatingPane } = this.state;
         const { isFloatingPaneOpen } = this.props;
+        console.log('not',isFloatingPaneOpen);
+        console.log('angle',isFloatingPaneHidden);
+       
+
+   
 
         return (
+
+
+            
             <div className="view-screen" style={{ paddingTop: '20px', border: '1px solid #ccc', display: 'flex' }}>
+                
                 <div
                     className="minor-pane-container"
                     style={{
@@ -140,18 +169,17 @@ class ViewScreen extends Component {
                         </div>
                         {!isMinorPaneHidden &&
                             <>
-                                <h7 style={{ marginTop: '-10px', transition: 'margin-top 0.5s ease' }}>Search</h7>
+                                <h7 style={{ marginTop: '-10px', transition: 'margin-top 0.5s ease',color:'grey' }}>Search</h7>
                                 <FontAwesomeIcon
                                     icon={faThumbtack}
                                     style={{
                                         position: 'absolute',
                                         right: 0,
                                         top: '35%',
-                                        transform: 'translateY(-50%)',
                                         transition: 'right 0.5s ease',
                                         cursor: 'pointer',
                                         color: isMinorPanePinned ? '#000' : '#ccc',
-                                        transform: isMinorPanePinned ? 'rotate(0deg)' : 'rotate(-45deg)'
+                                        transform: `translateY(-50%) ${isMinorPanePinned ? 'rotate(0deg)' : 'rotate(-45deg)'}`//modified by RAMU
                                     }}
                                     onClick={this.handleMinorPanePinToggle}
                                 />
@@ -190,8 +218,20 @@ class ViewScreen extends Component {
                     <MajorPane selectedItem={selectedItem} />
                 </div>
 
-                {!isFloatingPaneHidden  &&
-                    <div className="floating-pane-container" style={{ width: '300px', border: '1px solid #ccc', marginLeft: '10px', transition: 'width 0.5s ease' }}>
+               
+
+                {isFloatingPaneOpen && 
+                    <div
+                        className="floating-pane-container"
+                        style={{
+                            width: '300px',
+                            border: '1px solid #ccc',
+                            marginLeft: '10px',
+                            transition: 'width 2.5s ease out'
+                        }}
+                        onMouseEnter={this.handleMouseEnterFloatingPane}
+                        onMouseLeave={this.handleMouseLeaveFloatingPane}
+                    >
                         <div style={{ textAlign: 'center', padding: '10px' }}>
                             <FontAwesomeIcon
                                 icon={faThumbtack}
@@ -207,7 +247,11 @@ class ViewScreen extends Component {
                         </div>
                     </div>
                 }
-                <div style={{ position: 'absolute', top: '17%', right: '10px', transform: 'translateY(-50%)', zIndex: 1, cursor: 'pointer', fontSize: '12px' }} onClick={this.handleToggleFloatingPane}>
+
+
+
+                               
+                <div style={{ position: 'absolute', top: '17%', right: '10px', transform: 'translateY(-50%)', zIndex: 1, cursor: 'pointer', fontSize: '12px'  }} onClick={this.handleToggleFloatingPane}>
                     <FontAwesomeIcon icon={faAngleDoubleLeft} style={{ fontSize: '12px', color: '#000' }} />
                 </div>
             </div>

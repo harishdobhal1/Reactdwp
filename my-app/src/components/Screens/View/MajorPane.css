@@ -9,10 +9,11 @@
     padding: 10px;
     margin-left: 3px; 
      /* Set a fixed height for the MajorPane */
-     /* height: 500px; */
+     height: 1000px;
      /* Enable vertical scrolling */
-     overflow-y: auto;
+    overflow-y:auto;
      border-radius: 5px;
+     background-color: white;
 }
 .field-name {
     font-weight: bold;
@@ -32,6 +33,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for 3D effect */
     max-height: 200px; /* Maximum height of the container */
     overflow-y: auto; /* Enable vertical scrolling if needed */
+   
 }
 /* Styles for subsection panes */
 .subsection-pane {
@@ -76,9 +78,9 @@
 }
 
 .field {
-    width: 33.33%; /* Set the width of each field to one-third of the table width */
+    width:33.33%; /* Set the width of each field to one-third of the table width */
      /* Add padding to the fields */
-    
+ 
     text-align: left; /* Align text to the left within fields */
     box-sizing: border-box; /* Include padding and border in the width */
     /* Additional styles as needed */

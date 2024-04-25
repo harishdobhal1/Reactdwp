@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import generateItems from '../../data/Item';
 import './MinorPane.css';
-import Toggle from 'react-toggle';
-
+import MajorPane from './MajorPane';
 import 'react-toggle/style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faBars, faHandPointer, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBars, faHandPointer } from '@fortawesome/free-solid-svg-icons';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 
 class MinorPane extends Component {
@@ -42,6 +41,8 @@ class MinorPane extends Component {
             rowsPerPage: 5 // Number of rows per page
         };
     }
+
+   
 
     handleSearchChange = (event) => {
         const searchQuery = event.target.value;
@@ -117,21 +118,30 @@ class MinorPane extends Component {
         this.setState({ rowsPerPage: parseInt(event.target.value), currentPage: 1 });
     }
 
+  
+    
     render() {
         const { searchQuery, filteredItems, itemCount, elapsedTime, filters, isTableVisible,
-            showFilters, isSearchSelected, isClearSelected, isMenuOpen, menuOptions, supplierName,
-            itemName, isSearchIconClicked, isSearchIconHovered, isElementsVisible, currentPage, pageSize, rowsPerPage } = this.state;
+             isSearchSelected, isClearSelected, isMenuOpen, menuOptions, supplierName,
+            itemName, isSearchIconClicked, isSearchIconHovered, isElementsVisible, currentPage, rowsPerPage } = this.state;
+
+            console.log(rowsPerPage);
 
         // Calculate pagination
         const totalPages = Math.ceil(filteredItems.length / rowsPerPage);
         const startIndex = (currentPage - 1) * rowsPerPage;
         const endIndex = Math.min(startIndex + rowsPerPage, filteredItems.length);
         const itemsToShow = filteredItems.slice(startIndex, endIndex);
+       
+        
 
         return (
-            <div className="minor-pane-container-view">
-                <div className="minor-pane" style={{ overflowY: 'auto', maxHeight: '1000px', width: '85%', display: 'flex', flexDirection: 'column' }}>
+            
+            <div className="minor-pane-container-view">     
+                
 
+                <div className="minor-pane" style={{ overflowY: 'auto', maxHeight: '1000px', width: '85%', display: 'flex', flexDirection: 'column' }}>
+                
                     {/* Search Bar */}
                     <div className="search-bar" style={{ flexShrink: 0 }}>
                         {/* Toggle Button */}
@@ -152,7 +162,7 @@ class MinorPane extends Component {
                         <input
                             className="search-input"
                             type="text"
-                            placeholder="Search..."
+                            placeholder="Item Name"
                             value={searchQuery}
                             onChange={this.handleSearchChange}
                         />
@@ -182,6 +192,17 @@ class MinorPane extends Component {
                     {/* Supplier and Item Inputs */}
                     {isElementsVisible && (
                         <div className="otherfilter">
+                             {/* Item Input */}
+                             <div className="itemName-bar">
+                                <input
+                                    className="itemName-input"
+                                    type="text"
+                                    placeholder="Item Number"
+                                    value={itemName}
+                                    onChange={this.handleItemNameChange}
+                                />
+                            </div>
+
                             {/* Supplier Input */}
                             <div className="supplier-bar">
                                 <input
@@ -192,26 +213,17 @@ class MinorPane extends Component {
                                     onChange={this.handleSupplierNameChange}
                                 />
                             </div>
-                            {/* Item Input */}
-                            <div className="itemName-bar">
-                                <input
-                                    className="itemName-input"
-                                    type="text"
-                                    placeholder="Item Number"
-                                    value={itemName}
-                                    onChange={this.handleItemNameChange}
-                                />
-                            </div>
+                           
                             {/* Additional Inputs with Spacing */}
                             <div className="additional-inputs">
-                                <span className="supplier-label"  style={{ marginRight: '30px' }}>AA</span>
+                                <span className="supplier-label"  >AA</span>
                                 <input
                                     className="aaNumber"
                                     type="text"
                                     placeholder="PR Number"
                                     value={itemName}
                                     onChange={this.handleItemNameChange}
-                                    style={{ marginRight: '30px' }}
+                                    
                                 />
                                 <input
                                     className="Edition"
@@ -219,7 +231,8 @@ class MinorPane extends Component {
                                     placeholder="PR Edition"
                                     value={itemName}
                                     onChange={this.handleItemNameChange}
-                                    style={{ marginRight: '30px' }}
+                                    
+                                  
                                 />
                             </div>
                             {/* Packaging Input */}
@@ -290,8 +303,11 @@ class MinorPane extends Component {
                                             <th className="table-header">Number</th>
                                             <th className="table-header">Dwp Type</th>
                                             <th className="table-header">No-Ed</th>
-                                            <th className="table-header">Status</th>
+                                            <th className="table-header">PR/PSM ID</th>
+                                            <th className="table-header">Status Date</th>
                                             <th className="table-header">Supplier</th>
+                                            <th className="table-header">From Date</th>
+                                            <th className="table-header">To Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -299,10 +315,14 @@ class MinorPane extends Component {
                                             <tr key={index} className="table-row" onClick={() => this.props.onRowClick(item)}>
                                                 <td className="table-cell">{item.field1}</td>
                                                 <td className="table-cell">{item.field2}</td>
-                                                <td className="table-cell">{item.field8}</td>
+                                                <td className="table-cell">{item.field3}</td>
                                                 <td className="table-cell">{item.field4}</td>
                                                 <td className="table-cell">{item.field5}</td>
                                                 <td className="table-cell">{item.field6}</td>
+                                                <td className="table-cell">{item.field7}</td>
+                                                <td className="table-cell">{item.field8}</td>
+                                                <td className="table-cell">{item.field9}</td>
+
                                             </tr>
                                         ))}
                                     </tbody>
@@ -332,6 +352,7 @@ class MinorPane extends Component {
                         </div>
                     )}
 
+
                     {/* Item Count and Elapsed Time */}
                     {isTableVisible && (
                         <div className="search-box" style={{ flexShrink: 0 }}>
@@ -341,8 +362,10 @@ class MinorPane extends Component {
                             </div>
                         </div>
                     )}
+                    
                 </div>
             </div>
+            
         );
     }
 }

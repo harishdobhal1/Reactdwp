@@ -10,9 +10,14 @@ class MajorPane extends Component {
                 DWP: false,
                 ConsumerPackages: false,
                 isPanelOpen: false
-            }
+            },
+        height: '500px'    
+         
         };
     }
+ 
+   
+
     togglePanel = () => {
         this.setState(prevState => ({
             isPanelOpen: !prevState.isPanelOpen
@@ -27,6 +32,8 @@ class MajorPane extends Component {
             }
         }));
     }
+
+
 
     renderSubsectionFields = (fields) => {
         const rows = [];
@@ -45,6 +52,7 @@ class MajorPane extends Component {
     render() {
         const { selectedItem } = this.props;
         const { collapsed, isPanelOpen } = this.state;
+        
     
         // Check if no item is selected
         if (!selectedItem) {
@@ -68,22 +76,22 @@ class MajorPane extends Component {
                     {!collapsed.item && (
                         <div className="subsection-content">
                             {selectedItem && (
-                                <div className="fields-container">
+                                <div className="fields-container" >
                                     <table className="table">
                                         <tbody>
                                             {this.renderSubsectionFields([
-                                                { name: 'Number', value: selectedItem.field1 },
-                                                { name: 'Type', value: selectedItem.field2 },
-                                                { name: 'Name', value: selectedItem.field3 },
-                                                { name: 'PRU', value: selectedItem.field4 },
-                                                { name: 'HFB', value: selectedItem.field5 },
-                                                { name: 'PA', value: selectedItem.field6 },
-                                                { name: 'Category', value: selectedItem.field4 },
-                                                { name: 'Segment', value: selectedItem.field5 },
-                                                { name: 'Meterware', value: selectedItem.field6 },
-                                                { name: 'UTG', value: selectedItem.field4 },
-                                                { name: 'Status', value: selectedItem.field5 },
-                                                { name: 'PArtCentric', value: selectedItem.field6 },
+                                                { name: 'Number', value: selectedItem.field2 },
+                                                { name: 'Type', value: selectedItem.field3 },
+                                                { name: 'Name', value: selectedItem.field1 },
+                                                { name: 'PRU', value: selectedItem.field5 },
+                                                { name: 'HFB', value: selectedItem.field10},
+                                                { name: 'PA', value: selectedItem.field11 },
+                                                { name: 'Category', value: selectedItem.field12 },
+                                                { name: 'Segment', value: selectedItem.field13 },
+                                                { name: 'Meterware', value: selectedItem.field14 },
+                                                { name: 'UTG', value: selectedItem.field15 },
+                                                { name: 'Status', value: selectedItem.field16 },
+                                                { name: 'PartCentric', value: selectedItem.field17 },
                                                 // Add more fields as needed
                                             ])}
                                         </tbody>
@@ -93,9 +101,10 @@ class MajorPane extends Component {
                         </div>
                     )}
                 </div>
-                <div className={`subsection-pane ${collapsed.DWP ? 'collapsed' : ''}`} style={{ height: 'fit-content' }}>
+                
+                <div className={`subsection-pane ${collapsed.DWP ? 'collapsed' : ''}`} >
                     <h2 className="subsection-header" onClick={() => this.toggleCollapse('DWP')}>
-                        Supplier
+                        DWP
                         <span className={`arrow ${collapsed.DWP ? 'collapsed' : ''}`}>&#9660;</span>
                     </h2>
                     {!collapsed.DWP && (
@@ -105,12 +114,12 @@ class MajorPane extends Component {
                                     <table className="table">
                                         <tbody>
                                             {this.renderSubsectionFields([
-                                                { name: 'Number', value: selectedItem.field1 },
-                                                { name: 'Name', value: selectedItem.field2 },
-                                                { name: 'Purchasing Service Office', value: selectedItem.field3 },
-                                                { name: 'Supply Area', value: selectedItem.field4 },
-                                                { name: 'Main Category', value: selectedItem.field5 },
-                                                { name: 'Production Engineer', value: selectedItem.field6 },
+                                                { name: 'Type', value: selectedItem.field18 },
+                                                { name: 'Number', value: selectedItem.field19 },
+                                                { name: 'Edition', value: selectedItem.field20 },
+                                                { name: 'Status', value: selectedItem.field21 },
+                                                { name: 'Status Date', value: selectedItem.field6 },
+                                                { name: 'Issuer', value: selectedItem.field22 },
                                                 // Add more fields as needed
                                             ])}
                                         </tbody>
@@ -119,51 +128,16 @@ class MajorPane extends Component {
                             )}
                         </div>
                     )}
-                </div>
-                <div className={`subsection-pane ${collapsed.ConsumerPackages ? 'collapsed' : ''}`}>
-                    <h2 className="subsection-header" onClick={() => this.toggleCollapse('ConsumerPackages')}>
-                        DWP
-                        <span className={`arrow ${collapsed.ConsumerPackages ? 'collapsed' : ''}`}>&#9660;</span>
-                    </h2>
-                    {!collapsed.ConsumerPackages && (
+
+                    {!collapsed.DWP && (
                         <div className="subsection-content">
                             {selectedItem && (
                                 <div className="fields-container">
                                     <table className="table">
                                         <tbody>
                                             {this.renderSubsectionFields([
-                                                { name: 'Type', value: selectedItem.field1 },
-                                                { name: 'Number', value: selectedItem.field2 },
-                                                { name: 'Edition', value: selectedItem.field3 },
-                                                { name: 'Status', value: selectedItem.field4 },
-                                                { name: 'Issuer', value: selectedItem.field5 },
-                                                { name: 'Status Date', value: selectedItem.field6 },
-                                                { name: 'Latest update', value: selectedItem.field4 },
-                                                { name: 'Inspection Date', value: selectedItem.field5 },
-                                                { name: 'From Date', value: selectedItem.field6 },
-                                                { name: 'Inspection Date', value: selectedItem.field5 },
-                                                { name: 'To Date', value: selectedItem.field6 },
-                                                { name: 'LAst packaging Date', value: selectedItem.field6 },
-                                                // Add more fields as needed
-                                            ])}
-                                        </tbody>
-                                    </table>
-                                    <span style={{ border: '1px solid #ccc', padding: '5px', borderRadius: '5px', backgroundColor: '#f0f0f0', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.1)' }}>Packaging Requirement: AA-117525-9-LEN - Pillow - Packaging</span>
-                                    <table className="table">
-                                        <tbody>
-                                            {this.renderSubsectionFields([
-                                                { name: 'Fulfillment Flow', value: selectedItem.field1 },
-                                                { name: 'MDU', value: selectedItem.field2 },
-                                                { name: 'Picking Indication', value: selectedItem.field3 },
-                                                { name: 'MDQ', value: selectedItem.field4 },
-                                                { name: 'Shelf Life', value: selectedItem.field5 },
-                                                { name: 'Day Before FIFO', value: selectedItem.field6 },
-                                                { name: 'Fire Class', value: selectedItem.field4 },
-                                                { name: 'Suitable for Day filling', value: selectedItem.field5 },
-                                                { name: 'Sales Solution', value: selectedItem.field6 },
-                                                { name: 'Supply Chain Net Volume (dm3)', value: selectedItem.field5 },
-                                                { name: 'Supply Chain Gross Volume (dm3)', value: selectedItem.field6 },
-                                               
+                                                { name: 'Packaging Requirement:', value: selectedItem.field5 },
+                                                { name: 'Comments:', value: selectedItem.field23} 
                                                 // Add more fields as needed
                                             ])}
                                         </tbody>
@@ -172,7 +146,38 @@ class MajorPane extends Component {
                             )}
                         </div>
                     )}
+
+                    {!collapsed.DWP && (
+                        <div className="subsection-content">
+                            {selectedItem && (
+                                <div className="fields-container">
+                                    <table className="table">
+                                        <tbody>
+                                            {this.renderSubsectionFields([
+                                                { name: 'Fulfillment Flow', value: selectedItem.field24 },
+                                                { name: 'MDU', value: selectedItem.field25 },
+                                                { name: 'Picking Indication', value: selectedItem.field33 },
+                                                { name: 'MDQ', value: selectedItem.field34 },
+                                                { name: 'Shelf Life', value: selectedItem.field26 },
+                                                { name: 'Day Before FIFO', value: selectedItem.field27 },
+                                                { name: 'Fire Class', value: selectedItem.field28 },
+                                                { name: 'Suitable for Day filling', value: selectedItem.field29 },
+                                                { name: 'Sales Solution', value: selectedItem.field30 },
+                                                { name: 'Supply Chain Net Volume (dm3)', value: selectedItem.field31 },
+                                                { name: 'Supply Chain Gross Volume (dm3)', value: selectedItem.field32 },
+                                                
+                                            ])}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
+              
+                         
+               
+                         
                 {/* Add more subsections similarly */}
             </div>
         );

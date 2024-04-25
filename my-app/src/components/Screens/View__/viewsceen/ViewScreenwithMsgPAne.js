@@ -3,6 +3,8 @@ import MinorPane from './MinorPane';
 import MajorPane from './MajorPane';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faThumbtack } from '@fortawesome/free-solid-svg-icons';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 class ViewScreen extends Component {
     constructor(props) {
@@ -69,8 +71,10 @@ class ViewScreen extends Component {
         this.setState(prevState => ({ isFloatingPaneHidden: !prevState.isFloatingPaneHidden }));
     }
 
+
+
     render() {
-        const { selectedItem, minorPaneWidth, isMinorPanePinned, isMinorPaneHidden, isFloatingPanePinned, isFloatingPaneHidden } = this.state;
+        const { selectedItem, minorPaneWidth, isMinorPanePinned, isMinorPaneHidden, isFloatingPanePinned, isFloatingPaneHidden} = this.state;
         return (
             <div className="view-screen" style={{ paddingTop: '20px', border: '1px solid #ccc', display: 'flex' }}>
                 <div className="minor-pane-container" style={{ flex: `0 0 ${isMinorPaneHidden ? '0' : minorPaneWidth}px`, paddingRight: '5px', borderRight: '1px solid #ccc', overflow: 'hidden', position: 'relative', transition: 'flex-basis 0.5s ease' }}>
@@ -110,8 +114,9 @@ class ViewScreen extends Component {
                     </div>
                     <MajorPane selectedItem={selectedItem} />
                 </div>
+               
                 {!isFloatingPaneHidden &&
-                    <div className="floating-pane-container" style={{ width: '300px', border: '1px solid #ccc', marginLeft: '10px', transition: 'width 0.5s ease' }}>
+                    <div className="floating-pane-container" style={{ width: '300px', border: '1px solid #ccc',margintop:'30px' ,marginLeft: '10px', transition: 'width 2s ease' }}>
                         <div style={{ textAlign: 'center', padding: '10px' }}>
                             <FontAwesomeIcon
                                 icon={faThumbtack}
@@ -122,12 +127,20 @@ class ViewScreen extends Component {
                                     transform: isFloatingPanePinned ? 'rotate(0deg)' : 'rotate(-45deg)'
                                 }}
                                 onClick={this.handleFloatingPanePinToggle}
+                              
                             />
+    
                             <h5>Floating Pane</h5>
                         </div>
                     </div>
                 }
-                <div style={{ position: 'absolute', top: '17%', right: '10px', transform: 'translateY(-50%)', zIndex: 1, cursor: 'pointer', fontSize: '12px' }} onClick={this.handleToggleFloatingPane}>
+
+
+
+
+               
+                
+                <div style={{ position: 'absolute', top: '17%', right: '30px', transform: 'translateY(-50%)', zIndex: 1, cursor: 'pointer', fontSize: '12px' }} onClick={this.handleToggleFloatingPane}>
                     <FontAwesomeIcon icon={faAngleDoubleLeft} style={{ fontSize: '12px', color: '#000' }} />
                 </div>
             </div>

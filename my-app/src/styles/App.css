@@ -3,12 +3,14 @@
 /* Apply the Roboto font to the root element */
 body {
     font-family: 'Roboto', sans-serif;
+    
 }
 
 .app {
     display: flex;
     flex-direction: column;
     height: 100vh; /* Fill the entire viewport height */
+    
 }
 
 .view-screen {
@@ -117,7 +119,6 @@ input:checked + .slider:before {
     padding: 10px 20px; /* Add padding to increase clickable area */
     margin: 0 10px; /* Add margin for spacing between menu items */
     padding-right: 10px;
-    
 }
 
 .menu-item span {
@@ -128,8 +129,7 @@ input:checked + .slider:before {
     position: absolute;
     bottom: 10px;
     left: 0;
-    width: 100%;
-     /* Adjusted to cover the entire width */
+    width: 100%; /* Adjusted to cover the entire width */
     height: 2px;
     background-color: white; /* Initial color */
     transition: background-color 0.3s ease; /* Transition color change */

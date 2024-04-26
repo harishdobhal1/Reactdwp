@@ -4,7 +4,7 @@ import './MinorPane.css';
 import MajorPane from './MajorPane';
 import 'react-toggle/style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faBars, faHandPointer } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBars, faHandPointer, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 
 class MinorPane extends Component {
@@ -30,7 +30,7 @@ class MinorPane extends Component {
             isSearchSelected: false,
             isClearSelected: false,
             isMenuOpen: false,
-            menuOptions: ['Option 1', 'Option 2', 'Option 3'],
+            menuOptions: ['Compare', 'Find Deviation Report'],
             supplierName: '',
             itemName: '',
             isSearchIconClicked: false,
@@ -176,12 +176,17 @@ class MinorPane extends Component {
                         />
                         {/* Burger Menu */}
                         <div className="burger-menu" onClick={this.toggleMenu}>
-                            <FontAwesomeIcon icon={faBars} className="menu-icon" />
+                            <div class="white">
+                            <FontAwesomeIcon icon={faBars} className="menu-icon"  />
+                            <FontAwesomeIcon icon={faArrowDown}/>
+                            
+                            </div>
                             {isMenuOpen && (
                                 <div className="menu-options-container">
                                     {menuOptions.map((option, index) => (
                                         <div key={index} className="menu-option-box">
-                                            {option}
+                                            <button  style={{height:'30px', width: '180px', backgroundColor: 'white', border: '1px solid grey',borderRadius: '4px',color:'#333'}}>{option}</button>
+                                            <button style={{height:'30px',backgroundColor: 'white', border: '1px solid grey',borderRadius: '4px',color:'#333' }}>?</button>
                                         </div>
                                     ))}
                                 </div>

@@ -140,7 +140,7 @@ class MinorPane extends Component {
             <div className="minor-pane-container-view">     
                 
 
-                <div className="minor-pane" style={{ overflowY: 'auto', maxHeight: '1000px', width: '85%', display: 'flex', flexDirection: 'column' }}>
+                <div className="minor-pane" style={{ overflowY: 'auto', maxHeight: '1000px', width: '85%', display: 'flex', flexDirection: 'column',backgroundColor:'white' }}>
                 
                     {/* Search Bar */}
                     <div className="search-bar" style={{ flexShrink: 0 }}>

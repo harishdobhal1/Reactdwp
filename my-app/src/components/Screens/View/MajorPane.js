@@ -64,7 +64,7 @@ class MajorPane extends Component {
         }
     
         return (
-            <div className="major-pane">
+            <div className="major-pane" >
                 <div className={`side-panel ${isPanelOpen ? 'open' : ''}`}>
                     {/* Content of the side panel */}
                 </div>

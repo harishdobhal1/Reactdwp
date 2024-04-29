@@ -32,7 +32,7 @@
     background-color: #f9f9f9; /* Background color */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for 3D effect */
     max-height: 200px; /* Maximum height of the container */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
+    overflow: hidden; /* Enable vertical scrolling if needed */
    
 }
 /* Styles for subsection panes */
@@ -42,6 +42,7 @@
     border-radius: 5px; /* Rounded corners */
     padding: 10px; /* Adjust padding */
     margin-bottom: 10px; /* Add margin between subsection panes */
+    
 }
 
 /* Styles for subsection headers */

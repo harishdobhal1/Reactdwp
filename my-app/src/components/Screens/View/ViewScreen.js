@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MinorPane from './MinorPane';
 import MajorPane from './MajorPane';
+import './ViewScreen.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faThumbtack } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
@@ -129,7 +130,7 @@ class ViewScreen extends Component {
 
 
             
-            <div className="view-screen" style={{ paddingTop: '20px', border: '1px solid #ccc', display: 'flex' }}>
+            <div className="view-screen">
                 
                 <div
                     className="minor-pane-container"

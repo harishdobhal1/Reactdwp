@@ -58,7 +58,7 @@ class MajorPane extends Component {
         if (!selectedItem) {
             return (
                 <div className="major-pane">
-                    <div>No item selected</div>
+                    <div style={{color:'grey'}}>No item selected</div>
                 </div>
             );
         }

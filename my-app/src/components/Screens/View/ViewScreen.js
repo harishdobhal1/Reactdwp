@@ -27,6 +27,7 @@ class ViewScreen extends Component {
         };
         
     }
+ 
 
     handleClearSelectedItem = () => {
         this.setState({ selectedItem: null });
@@ -127,8 +128,6 @@ class ViewScreen extends Component {
    
 
         return (
-
-
             
             <div className="view-screen">
                 
@@ -214,7 +213,7 @@ class ViewScreen extends Component {
                 <div className="gap" style={{ width: '10px', backgroundColor: '#f0f0f0', borderRight: '1px solid #ccc' }} />
                 <div className="major-pane-container" style={{ flex: 1, paddingLeft: '5px' }}>
                     <div style={{ textAlign: 'center', paddingTop: '5px' }}>
-                        <h7 style={{ marginTop: '-10px' }}>Detail</h7>
+                        <h7 style={{ marginTop: '-10px', color:'grey' }}>Detail</h7>
                     </div>
                     <MajorPane selectedItem={selectedItem} />
                 </div>
@@ -228,10 +227,10 @@ class ViewScreen extends Component {
                             width: '300px',
                             border: '1px solid #ccc',
                             marginLeft: '10px',
-                            transition: 'width 2.5s ease out'
+                            transition: '0.5s ease out',
+                            
                         }}
-                        onMouseEnter={this.handleMouseEnterFloatingPane}
-                        onMouseLeave={this.handleMouseLeaveFloatingPane}
+                      
                     >
                         <div style={{ textAlign: 'center', padding: '10px' }}>
                             <FontAwesomeIcon

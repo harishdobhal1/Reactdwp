@@ -1,9 +1,0 @@
-C:\Dev\MultiAgent\DBAgent\obj\Release\net9.0\PubTmp\Out\DBAgent.exe
-C:\Dev\MultiAgent\DBAgent\obj\Release\net9.0\PubTmp\Out\appsettings.Development.json
-C:\Dev\MultiAgent\DBAgent\obj\Release\net9.0\PubTmp\Out\appsettings.json
-C:\Dev\MultiAgent\DBAgent\obj\Release\net9.0\PubTmp\Out\DBAgent.dll
-C:\Dev\MultiAgent\DBAgent\obj\Release\net9.0\PubTmp\Out\DBAgent.deps.json
-C:\Dev\MultiAgent\DBAgent\obj\Release\net9.0\PubTmp\Out\DBAgent.runtimeconfig.json
-C:\Dev\MultiAgent\DBAgent\obj\Release\net9.0\PubTmp\Out\DBAgent.pdb
-C:\Dev\MultiAgent\DBAgent\obj\Release\net9.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll
-C:\Dev\MultiAgent\DBAgent\obj\Release\net9.0\PubTmp\Out\Microsoft.OpenApi.dll
